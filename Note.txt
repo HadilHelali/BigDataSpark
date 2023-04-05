@@ -1,0 +1,2 @@
+To run the jar file in master , we need to execute this command after aading the quartz jar to the path :
+spark-submit --class tn.insat.gl4.ApiReceiver --master local --driver-memory 4g --executor-memory 2g --executor-cores 1 --jars quartz-2.3.2.jar SparkFireCalls-1.jar
