@@ -7,8 +7,9 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
-import org.quartz.*;
-import org.quartz.impl.StdSchedulerFactory;
+import org.quartz.Job;
+import org.quartz.JobExecutionContext;
+import org.quartz.JobExecutionException;
 
 import java.util.Arrays;
 import java.util.List;
@@ -16,8 +17,9 @@ import java.util.List;
 public class ApiReceiver implements Job {
 
     private static final String API_ENDPOINT = "https://data.seattle.gov/resource/kzjm-xkqj.json";
+    private  String dataList = "";
 
-    public static void main(String[] args) throws SchedulerException {
+    /* public static void main(String[] args) throws SchedulerException {
         // create a Quartz scheduler factory
         StdSchedulerFactory schedulerFactory = new StdSchedulerFactory();
         // get a scheduler instance from the factory
@@ -38,7 +40,7 @@ public class ApiReceiver implements Job {
         scheduler.scheduleJob(jobDetail, trigger);
         // start the scheduler
         scheduler.start();
-    }
+    }*/
 
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
@@ -57,16 +59,25 @@ public class ApiReceiver implements Job {
                 FireCall[] peopleArray = mapper.readValue(jsonString, FireCall[].class);
                 List<FireCall> callList = Arrays.asList(peopleArray);
 
+
                 for (FireCall p : callList) {
-                    System.out.println(p.getIncidentNumber()+" | "+p.getAddress()+" | "+p.getType()+" | "+p.getDatetime());
+                    dataList += p.getIncidentNumber()+" | "+p.getAddress()+" | "+p.getType()+" | "+p.getDatetime()+"\n";
                 }
-                System.out.println("------------------------------------------------------------------------------------");
+                dataList += "------------------------------------------------------------------------------------"+"\n" ;
+
+            }
+            catch (Exception e) {
+                // handle any exceptions thrown by the API request
+                e.printStackTrace();
             }
         } catch (Exception e) {
+            System.out.println("HTTPClient");
             // handle any exceptions thrown by the API request
             e.printStackTrace();
         }
     }
 
-
+    public String getDataList() {
+        return dataList;
+    }
 }
