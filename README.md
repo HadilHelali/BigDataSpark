@@ -6,6 +6,7 @@ This java project is used accourding to our architecture for the data stream pro
 <p align="center">
   <img src="./Architecture.png" width=650 height=280>
 </p>
+
 > Note : you can check these two links for the rest of the project : 
 > * [Batch Processing](https://github.com/HadilHelali/BigDataBatch)
 > * [Visualization](https://github.com/RaouaTrimech/BigDataVisualisation)
