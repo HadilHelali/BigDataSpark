@@ -81,3 +81,6 @@ To run the JAR file , we need :
 mongo fire-calls
 db['fire-calls-spark'].find()
 ```
+## Collaborators 
+| Raoua Trimech | Hadil Helali | Soulaima Kahla |
+| ---- | ---- | ---- |
