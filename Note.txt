@@ -1,7 +1,0 @@
-To run the jar file in master , we need to execute this command after aading the quartz jar to the path :
-spark-submit --class tn.insat.gl4.ApiReceiver --master local --driver-memory 4g --executor-memory 2g --executor-cores 1 --jars quartz-2.3.2.jar SparkFireCalls-1.jar
-** adding kafka **
-spark-submit --class tn.insat.gl4.kafka.ApiReceiverProducer --master local[2] SparkFireCalls-1-jar-with-dependencies.jar >> outCalls
-** To create the topic **
-kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic fire-calls
-  kafka-topics.sh --list --zookeeper localhost:2181
