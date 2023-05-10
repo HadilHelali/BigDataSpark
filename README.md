@@ -1,7 +1,7 @@
 # BigDataSpark
 
 This is a part of a big data project which encompasses both batch and data stream processing.
-This java project is used for the data stream processing using [Seattle Real Time Fire 911 Calls API]([https://data.sfgov.org/Public-Safety/Fire-Department-Calls-for-Service/nuek-vuh3/data](https://data.seattle.gov/Public-Safety/Seattle-Real-Time-Fire-911-Calls/kzjm-xkqj))
+This java project is used for the data stream processing using [Seattle Real Time Fire 911 Calls API](https://data.seattle.gov/Public-Safety/Seattle-Real-Time-Fire-911-Calls/kzjm-xkqj)
 
 For both components of the project, the execution of the generated Java applications will take place within an architecture consisting of three Docker containers. These containers serve specific roles, representing :
 * **a master node (Namenode)** 
