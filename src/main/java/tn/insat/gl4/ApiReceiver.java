@@ -54,12 +54,12 @@ public class ApiReceiver implements Job {
                 HttpEntity entity = response.getEntity();
                 String jsonString = EntityUtils.toString(entity);
                 //System.out.println(jsonString);
-
+                System.out.println("retrieving data from API ...");
                 ObjectMapper mapper = new ObjectMapper();
                 FireCall[] peopleArray = mapper.readValue(jsonString, FireCall[].class);
                 List<FireCall> callList = Arrays.asList(peopleArray);
 
-
+                System.out.println("performing operations on the retreived data ...");
                 for (FireCall p : callList) {
                     dataList += p.getIncidentNumber()+" | "+p.getAddress()+" | "+p.getType()+" | "+p.getDatetime()+"\n";
                 }

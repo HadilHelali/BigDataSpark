@@ -3,5 +3,5 @@ spark-submit --class tn.insat.gl4.ApiReceiver --master local --driver-memory 4g 
 ** adding kafka **
 spark-submit --class tn.insat.gl4.kafka.ApiReceiverProducer --master local[2] SparkFireCalls-1-jar-with-dependencies.jar >> outCalls
 ** To create the topic **
-afka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic fire-calls
+kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic fire-calls
   kafka-topics.sh --list --zookeeper localhost:2181
